@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+/* il est ici car c est le seul css qui a acces au body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Évite que les marges affectent la largeur/hauteur */
+  }

@@ -1,0 +1,72 @@
+
+.profile-container {
+    width: 100vw; /* Largeur 100% de l'écran */
+    height: 100vh; /* Hauteur 100% de l'écran */
+    background-image: url('/images/barblur.jpg'); /* Image de fond */
+    background-size: cover; /* Ajuste l'image pour qu'elle couvre tout */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden; /* Empêche tout dépassement */
+}
+
+/* Navbar */
+.navbar {
+    width: 100%; /* Occupe toute la largeur */
+    position: absolute; /* Se place au-dessus de tout */
+    top: 0;
+    left: 0;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 5%;
+}
+
+
+/* ✅ Change `.main` en `row` pour que `.profile-picture` et `.white-container` soient côte à côte */
+.main {
+    display: flex;
+    flex-direction: column; /* Met en ligne (au lieu de column) */
+    justify-content: space-between;
+    align-items: center;
+    width: 80%; /* Contrôle la taille globale */
+    max-width: 1000px; /* Pour éviter que tout s’étire trop */
+    height: 90vh; /* Ajuster la hauteur */
+}
+
+/* ✅ Ajuste la taille de la photo de profil pour qu'elle fasse 50% de `.main` */
+.profile-picture {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Empêche l'image de dépasser */
+}
+
+/* ✅ Ajuste l’image pour qu’elle ne dépasse pas */
+.profile-picture img {
+    width: 100%; /* L’image occupe tout l’espace du conteneur */
+    height: 100%;
+    object-fit: cover; /* Remplit l’espace sans se déformer */
+}
+
+/* ✅ Ajuste `.white-container` pour qu'il occupe bien l’autre moitié */
+.white-container {
+    background-color: white;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 1%;
+    border-top-left-radius: 65px; /* Arrondi en haut à gauche */
+    border-top-right-radius:65px; /* Arrondi en haut à droite */
+    }
+
+    .white-container h1{
+   color: gray;
+    font-size: 6vw; /* Ajuste la taille en fonction de la largeur du conteneur */
+    }
