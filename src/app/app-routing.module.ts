@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profil-page/profile.component';
 import { ConexionComponent } from './login/conexion/conexion.component';
+import { ClassementComponent } from './classement/classement/classement.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,9 @@ const routes: Routes = [
   },
   {
     path: 'profile', component: ProfileComponent
+  },
+  {
+    path: 'classement', component: ClassementComponent
   }
 ];
 
