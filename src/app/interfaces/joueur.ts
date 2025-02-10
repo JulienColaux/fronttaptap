@@ -1,3 +1,5 @@
+import { Trophee } from "./trophee";
+
 export interface Joueur {
   ID_Joueur: number;
   nom: string;
@@ -5,5 +7,5 @@ export interface Joueur {
   xp: number;
   ID_EchelleGrade?: number;
   elo: number;
-  trophees: any;  // Adapter le type selon votre besoin
+  trophees: Trophee[]; 
 }

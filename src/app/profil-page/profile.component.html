@@ -1,21 +1,35 @@
-
 <div class="profile-container">
+  <div class="navbar">
+    <h2>TapTap</h2>
+    <h2>Saison</h2>
+  </div>
 
-    <div class="navbar">
-        <h2>TapTap</h2>
-        <h2>Saison</h2>
+  <div class="main">
+    <div class="profile-picture">
+      <img src="/images/mica.png" alt="Photo de profile du joueur" />
     </div>
 
-    <div class="main">
+    <div class="white-container">
 
-        <div class="profile-picture">
-            <img src="/images/mica.png" alt="Photo de profile du joueur">
+        <div class="name">
+            <h1>{{ joueur?.nom }}</h1>
+            <h3>{{ grade?.nom }}</h3>
+        </div>
+        
+        <div class="gradepoints">
+            <p>{{joueur?.elo}}</p>
         </div>
 
-        <div class="white-container">
-            <h1>{{joueur?.nom}}</h1>
+        <div class="trophees">
+            <div *ngFor="let url of tropheesUrls">
+
+                <img [src]="url" alt="Image du trophée" />
+
+            </div>
         </div>
+        
+        
 
     </div>
-
+  </div>
 </div>

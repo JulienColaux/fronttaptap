@@ -30,7 +30,6 @@
 .main {
     display: flex;
     flex-direction: column; /* Met en ligne (au lieu de column) */
-    justify-content: space-between;
     align-items: center;
     width: 80%; /* Contrôle la taille globale */
     max-width: 1000px; /* Pour éviter que tout s’étire trop */
@@ -42,7 +41,6 @@
     width: 40%;
     height: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
     overflow: hidden; /* Empêche l'image de dépasser */
 }
@@ -59,14 +57,43 @@
     background-color: white;
     width: 70%;
     height: 100%;
-    display: flex;
-    justify-content: center;
+    text-align: center; /* Centre le contenu */
     padding-top: 1%;
     border-top-left-radius: 65px; /* Arrondi en haut à gauche */
     border-top-right-radius:65px; /* Arrondi en haut à droite */
+    color: rgb(92, 91, 91);
+
     }
 
     .white-container h1{
-   color: gray;
     font-size: 6vw; /* Ajuste la taille en fonction de la largeur du conteneur */
     }
+
+    .gradepoints {
+        display: flex;
+        justify-content: center; /* Centre le contenu horizontalement */
+        gap: 15px; /* Espacement entre les éléments */
+        align-items: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: rgb(92, 91, 91);
+    }
+
+    .trophees{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centre les trophées dans la div */
+
+    }
+
+    .trophees div {
+        width: calc(25% - 10px); /* Chaque trophée prend 25% de la ligne (4 par ligne) */
+        display: flex;
+        justify-content: center; /* Centre l’image dans le div */
+    }
+
+    .trophees img {
+        height: 15vh; /* 8% de la hauteur de l'écran */
+        width: auto; /* Garde les proportions de l’image */
+    }
+    

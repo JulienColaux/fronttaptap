@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Joueur } from '../interfaces/joueur';
 import { ProfilPageService } from './profil-page.service';
+import { Grade } from '../interfaces/grade';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-profile',
@@ -10,6 +13,8 @@ import { ProfilPageService } from './profil-page.service';
 export class ProfileComponent implements OnInit{
 
   joueur: Joueur | null = null;
+  grade: Grade | null = null;
+  tropheesUrls: string[] = [];
 
   constructor(private pp : ProfilPageService ) { }
 
@@ -19,10 +24,26 @@ export class ProfileComponent implements OnInit{
       (data: Joueur) => {
         this.joueur = data;
         console.log('Joueur récupéré :', data);
+
+        if (data.trophees) {
+          this.tropheesUrls = data.trophees.map(trophee => `/images/${trophee.url_image}`);
+        }
+        console.log('trophee urls récupéré :', this.tropheesUrls);
+
       },
       error =>{
         console.error('Erreur lors de la récup du joueur');
       }
     );
+
+
+
+    this.pp.getGradeById(id).subscribe(valeur=>{
+      this.grade = valeur;
+
+
+    })
+
+
   }
 }
