@@ -1,11 +1,24 @@
-<h2>connexion</h2>
 
-<form (submit)="login()">
-  <label>Email :</label>
-  <input type="email" [(ngModel)]="email" name="email" required />
+<div class="all">
 
-  <label>Mot de passe :</label>
-  <input type="password" [(ngModel)]="password" name="password" required />
 
-  <button type="submit">Se connecter</button>
-</form>
+  <div class="logo">
+    <img src="/images/logo.png" alt="">
+   </div>
+
+
+
+<div class="login">
+
+  
+  <form (submit)="login()">
+    <input class="input-field" placeholder="Adresse Mail" type="email" [(ngModel)]="email" name="email" required />
+    
+    <input class="input-field" placeholder="Mot de passe" type="password" [(ngModel)]="password" name="password" required />
+    
+    <button type="submit" class="btn">Next</button>
+  </form>
+  
+  </div>
+</div>
+  

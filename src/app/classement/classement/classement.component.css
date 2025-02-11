@@ -43,6 +43,12 @@ align-items: center;
 
 .main{
     padding: 2vh;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;  /* Animation fluide */
+}
+
+.main:hover{
+    transform: scale(1.1);  /* Agrandit le bouton à 110% */
 }
 
 .joueur{

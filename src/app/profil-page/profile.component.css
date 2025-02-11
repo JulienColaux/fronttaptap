@@ -97,3 +97,16 @@
         width: auto; /* Garde les proportions de l’image */
     }
     
+    .btn{
+        background: transparent; 
+        color: white;  
+        font-size: 3vh;
+        border: none;
+        transition: transform 0.3s ease-in-out;  /* Animation fluide */
+        cursor: pointer; /* Ajoute un curseur de type bouton */
+
+    }
+
+    .btn:hover{
+        transform: scale(1.1);  /* Agrandit le bouton à 110% */
+    }

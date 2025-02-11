@@ -46,7 +46,7 @@ export class ConexionComponent {
                 console.log('JoueurID récupéré :', this.joueurId);
 
                 // Redirection vers le profil
-                this.router.navigate([`/profile/${this.joueurId}`]);
+                this.router.navigate([`/profil/${this.joueurId}`]);
               },
               error: (err) => {
                 console.error('Erreur lors de la récupération de l\'ID joueur:', err);

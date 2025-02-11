@@ -15,7 +15,7 @@ const routes: Routes = [
     path: 'profile', component: ProfileComponent
   },
   {
-    path: 'profile/:id', component: ProfileComponent
+    path: 'profil/:id', component: ProfileComponent
   },
   {
     path: 'classement', component: ClassementComponent

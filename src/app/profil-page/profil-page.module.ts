@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -9,7 +11,9 @@ import { ProfileComponent } from './profile.component';
     ProfileComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule,
+    RouterModule
   ],
   exports: [
     ProfileComponent

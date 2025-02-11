@@ -1,0 +1,60 @@
+.all {
+    width: 100vw; /* Largeur 100% de l'écran */
+    height: 100vh; /* Hauteur 100% de l'écran */
+    background-image: url('/images/barLogin.png'); /* Image de fond */
+    background-size: cover; /* Ajuste l'image pour qu'elle couvre tout */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Empêche tout dépassement */
+}
+
+.logo{
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img{
+    height: 90%;
+    padding-top: 10%;
+}
+
+.login{
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+}
+
+.login form{
+    display: flex;
+    flex-direction: column;
+align-items: center;}
+
+.input-field::placeholder {
+    color: white;
+  }
+
+  .input-field {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    padding: 10px;
+    width: 100%;
+    border-radius: 20px;
+    margin: 10px;
+  }
+
+  .btn{
+    height: 4vh;
+    width: 10vh;
+    border-radius: 30px;
+
+  }
+
+  
