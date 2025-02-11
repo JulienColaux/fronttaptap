@@ -1,30 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { JoueurClassement } from '../../interfaces/joueur-classement';
-import { ClassementService } from '../classement.service';
-import { CommonModule } from '@angular/common'; // ✅ Ajout de CommonModule
+import { Saison } from '../../interfaces/saison';
+import { ClassementService } from '../services/classement.service';
+import { CountdownService } from '../services/countdown.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-classement',
   templateUrl: './classement.component.html',
-  styleUrl: './classement.component.css'
+  styleUrls: ['./classement.component.css'] // ✅ Correction de "styleUrl" -> "styleUrls"
 })
-export class ClassementComponent implements OnInit{
+export class ClassementComponent implements OnInit {
+  joueursClassement: JoueurClassement[] = [];
+  saison: Saison | null = null;
+  countdown$!: Observable<{ days: number, hours: number, minutes: number, seconds: number }>;
 
-joueursClassement : JoueurClassement[] = [];
+  constructor(
+    private service: ClassementService,
+    private countdownService: CountdownService // ✅ Injection du CountdownService
+  ) {}
 
-  constructor(private service : ClassementService ) { }
+  ngOnInit(): void {
+    const seasonId = 2; // ID de la saison (peut être dynamique)
 
+    // Récupérer le classement des joueurs
+    this.service.getClassement(seasonId).subscribe(
+      (data: JoueurClassement[]) => {
+        this.joueursClassement = data;
+        console.log('Joueurs récupérés et classés :', data);
+      }
+    );
 
-ngOnInit(): void {
-  const seasonId = 2;
+    // Récupérer les informations de la saison
+    this.service.getSaisonById(seasonId).subscribe(
+      (data: Saison) => {
+        this.saison = data;
+        console.log('Saison récupérée :', data);
 
-  this.service.getClassement(seasonId).subscribe(
-    (data: JoueurClassement[]) =>{
-      this.joueursClassement = data
-      console.log('Joueur récupéré et classé :', data);
-
-    }
-  )
-}
-
+        // ✅ Si la saison a une date limite, démarrer le compte à rebours
+        if (this.saison.decompte) {
+          this.countdownService.startCountdown(this.saison.decompte);
+          this.countdown$ = this.countdownService.getCountdown();
+        }
+      }
+    );
+  }
 }

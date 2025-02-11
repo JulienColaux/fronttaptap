@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { JoueurClassement } from '../interfaces/joueur-classement';
 import { Observable } from 'rxjs';
+import { Saison } from '../../interfaces/saison';
+import { JoueurClassement } from '../../interfaces/joueur-classement';
 
 
 @Injectable({
@@ -17,4 +18,8 @@ export class ClassementService {
     return this.http.get<JoueurClassement[]>(`${this.ApiUrl}/${saisonId}/classement`);
 }
 
+
+getSaisonById(saisonId: number): Observable<Saison>{
+  return this.http.get<Saison>(`${this.ApiUrl}/${saisonId}`);
+}
 }
