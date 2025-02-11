@@ -15,7 +15,7 @@
   </div>
 
   <div class="main-container">
-    <div class="main" *ngFor="let joueur of joueursClassement">
+    <div class="main" *ngFor="let joueur of joueursClassement" [routerLink]="['/profil', joueur.ID_Joueur]">
       <div class="joueur">
         <div class="pp">
           <img src="{{ joueur.avatar_URL }}" alt="Photo de profil du joueur." />

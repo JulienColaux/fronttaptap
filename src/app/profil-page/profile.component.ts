@@ -3,6 +3,7 @@ import { Joueur } from '../interfaces/joueur';
 import { ProfilPageService } from './profil-page.service';
 import { Grade } from '../interfaces/grade';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -15,35 +16,43 @@ export class ProfileComponent implements OnInit{
   joueur: Joueur | null = null;
   grade: Grade | null = null;
   tropheesUrls: string[] = [];
+  joueurId: string | null = null;
 
-  constructor(private pp : ProfilPageService ) { }
+
+  constructor(private pp : ProfilPageService, private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
-    const id = 1;
-    this.pp.getJoueurById(id).subscribe(
-      (data: Joueur) => {
-        this.joueur = data;
-        console.log('Joueur récupéré :', data);
-
-        if (data.trophees) {
-          this.tropheesUrls = data.trophees.map(trophee => `/images/${trophee.url_image}`);
+    // Récupérer l'ID depuis l'URL et le convertir en nombre
+    const joueurIdStr = this.route.snapshot.paramMap.get('id');
+    const joueurId = joueurIdStr ? parseInt(joueurIdStr, 10) : null;
+  
+    if (joueurId !== null && !isNaN(joueurId)) {
+      this.pp.getJoueurById(joueurId).subscribe(
+        (data: Joueur) => {
+          this.joueur = data;
+          console.log('Joueur récupéré :', data);
+  
+          if (data.trophees) {
+            this.tropheesUrls = data.trophees.map(trophee => `/images/${trophee.url_image}`);
+          }
+          console.log('Trophées récupérés :', this.tropheesUrls);
+        },
+        error => {
+          console.error('Erreur lors de la récupération du joueur', error);
         }
-        console.log('trophee urls récupéré :', this.tropheesUrls);
-
-      },
-      error =>{
-        console.error('Erreur lors de la récup du joueur');
-      }
-    );
-
-
-
-    this.pp.getGradeById(id).subscribe(valeur=>{
-      this.grade = valeur;
-
-
-    })
-
-
+      );
+  
+      this.pp.getGradeById(joueurId).subscribe(
+        (valeur: Grade) => {
+          this.grade = valeur;
+        },
+        error => {
+          console.error('Erreur lors de la récupération du grade', error);
+        }
+      );
+    } else {
+      console.error("ID du joueur invalide !");
+    }
   }
+  
 }

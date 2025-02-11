@@ -2,25 +2,68 @@ import { Component } from '@angular/core';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-conexion',
   templateUrl: './conexion.component.html',
-  styleUrl: './conexion.component.css'
+  styleUrls: ['./conexion.component.css']
 })
 export class ConexionComponent {
   email: string = '';
   password: string = '';
+  userId?: number; // Déclarer comme optionnel pour éviter les erreurs
+  joueurId?: number;
 
-  constructor(private logService: LoginService, private router: Router){}
+  constructor(private logService: LoginService, private router: Router) {}
 
-    login(){
-      this.logService.login({email: this.email, password: this.password} ).subscribe(response =>{
-        alert('Connexion réussi');
+  login() {
+    this.logService.login({ email: this.email, password: this.password }).subscribe({
+      next: (response) => {
+        // Stocke le token dans le localStorage
         localStorage.setItem('token', response.token);
-        this.router.navigate(['/profile']);
-      },error => {
-        alert ('Erreur de connexion');
-      });
-    }
+
+        // Récupération de l'ID utilisateur
+        this.logService.getUserId(this.email).subscribe({
+          next: (userId) => {
+            if (userId === null || userId === undefined || isNaN(userId)) {
+              console.error('ID utilisateur non trouvé ou invalide.');
+              alert('Erreur : ID utilisateur non trouvé.');
+              return;
+            }
+
+            this.userId = userId; // Stocke l'ID utilisateur
+            console.log('UserID récupéré :', this.userId);
+
+            // Récupération de l'ID du joueur
+            this.logService.getJoueurId(this.userId).subscribe({
+              next: (joueurId) => {
+                if (joueurId === null || joueurId === undefined || isNaN(joueurId)) {
+                  console.error('ID Joueur non trouvé ou invalide.');
+                  alert('Erreur : ID Joueur non trouvé.');
+                  return;
+                }
+
+                this.joueurId = joueurId; // Stocke l'ID joueur
+                console.log('JoueurID récupéré :', this.joueurId);
+
+                // Redirection vers le profil
+                this.router.navigate([`/profile/${this.joueurId}`]);
+              },
+              error: (err) => {
+                console.error('Erreur lors de la récupération de l\'ID joueur:', err);
+                alert('Erreur lors de la récupération de l\'ID joueur.');
+              }
+            });
+          },
+          error: (err) => {
+            console.error('Erreur lors de la récupération de l\'ID utilisateur:', err);
+            alert('Erreur lors de la récupération de l\'ID utilisateur.');
+          }
+        });
+      },
+      error: (err) => {
+        console.error('Erreur de connexion:', err);
+        alert('Erreur de connexion. Vérifiez vos identifiants.');
+      }
+    });
+  }
 }
