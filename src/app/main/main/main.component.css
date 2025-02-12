@@ -1,0 +1,47 @@
+.all {
+    width: 100vw; /* Largeur 100% de l'écran */
+    height: 100vh; /* Hauteur 100% de l'écran */
+    background-image: url('/images/barblur.jpg'); /* Image de fond */
+    background-size: cover; /* Ajuste l'image pour qu'elle couvre tout */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Empêche la répétition */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Empêche tout dépassement */
+} 
+
+
+.navbar {
+    width: 100%; /* Occupe toute la largeur */
+    position: absolute; /* Se place au-dessus de tout */
+    top: 0;
+    left: 0;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 5%;
+}
+
+
+
+.cards img{
+    height: 43vh;
+    margin-top: 12vh;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cards img:hover {
+    transform: translateY(-30px);
+}
+
+.btn{
+    background: transparent; 
+    color: white;  
+    font-size: 3vh;
+    border: none;
+    transition: transform 0.3s ease-in-out;  /* Animation fluide */
+    cursor: pointer; /* Ajoute un curseur de type bouton */
+
+}

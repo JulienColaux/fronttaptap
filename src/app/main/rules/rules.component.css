@@ -1,0 +1,82 @@
+/* Utilisation de :host pour appliquer les styles à la racine du composant */
+:host {
+    display: block;
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  /* Container centré */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* En-tête et pied de page */
+  header, footer {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin: 20px 0 10px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+  }
+  
+  h3 {
+    font-size: 1.4rem;
+    margin: 15px 0 10px;
+  }
+  
+  p {
+    margin-bottom: 10px;
+  }
+  
+  ol {
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Styles pour la table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  
+  table th,
+  table td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: #1f1f1f;
+  }
+  
+  /* Lien */
+  a {
+    color: #e0e0e0;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  footer p {
+    font-size: 0.9rem;
+    color: #888;
+  }
+  

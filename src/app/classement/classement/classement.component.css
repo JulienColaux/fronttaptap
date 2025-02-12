@@ -23,6 +23,16 @@
     padding: 20px 5%;
 }
 
+.btn{
+    background: transparent; 
+    color: white;  
+    font-size: 3vh;
+    border: none;
+    transition: transform 0.3s ease-in-out;  /* Animation fluide */
+    cursor: pointer; /* Ajoute un curseur de type bouton */
+
+}
+
 .saison{
     color: white;
     display: flex;

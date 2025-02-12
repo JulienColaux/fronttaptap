@@ -21,7 +21,7 @@ export class ClassementComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const seasonId = 2; // ID de la saison (peut être dynamique)
+    const seasonId = 1; // ID de la saison (peut être dynamique)
 
     // Récupérer le classement des joueurs
     this.service.getClassement(seasonId).subscribe(

@@ -1,13 +1,12 @@
 <div class="profile-container">
   <div class="navbar">
+    <button class="btn" [routerLink]="['/menu']">Menu</button>
     <button class="btn" [routerLink]="['/classement']">Classement</button>
-    
-    <h2>Saison</h2>
   </div>
 
   <div class="main">
     <div class="profile-picture">
-      <img src="{{joueur?.avatar_URL}}" alt="Photo de profile du joueur" />
+      <img src="images/{{joueur?.avatar_URL}}" alt="Photo de profile du joueur" />
     </div>
 
     <div class="white-container">

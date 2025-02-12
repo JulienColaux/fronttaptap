@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { ProfilPageModule } from './profil-page/profil-page.module';
 import { ClassementModule } from './classement/classement.module';
+import { MainComponent } from './main/main/main.component';
+import { MainModule } from './main/main.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ClassementModule } from './classement/classement.module';
     AppRoutingModule,
     LoginModule,
     ProfilPageModule,
-    ClassementModule
+    ClassementModule,
+    MainModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
