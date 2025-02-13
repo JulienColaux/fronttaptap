@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { PartieForAllGames } from '../interfaces/allgames';
 
 
 
@@ -18,13 +19,14 @@ export class PartieService {
 
   private apiUrl = 'http://localhost:5105/api/Partie';
   private joueurUrl = 'http://localhost:5105/api/Joueur/gettAllNames';
+  private apiUrlallParties = 'http://localhost:5105/api/Partie/allParties'; // URL de l'API
 
 
 
   constructor(private http: HttpClient) { }
 
-   // Créer une partie
-   createPartie(amical: boolean): Observable<{ id: number }> {
+  // Créer une partie
+  createPartie(amical: boolean): Observable<{ id: number }> {
     return this.http.post<{ id: number }>(`${this.apiUrl}`, { amical });
   }
 
@@ -38,6 +40,13 @@ export class PartieService {
   getJoueurs(): Observable<JoueurForListe[]> {
     return this.http.get<JoueurForListe[]>(this.joueurUrl);
   }
-  
+
+
+
+
+  getParties(): Observable<PartieForAllGames[]> {
+    return this.http.get<PartieForAllGames[]>(this.apiUrlallParties);
+  }
+
 }
 
