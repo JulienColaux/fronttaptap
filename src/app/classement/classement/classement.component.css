@@ -85,3 +85,7 @@ align-items: center;
     height: 10vh;
     padding-bottom: 1vh;
 }
+
+.btn:hover{
+    transform: scale(1.1);  /* Agrandit le bouton à 110% */
+}

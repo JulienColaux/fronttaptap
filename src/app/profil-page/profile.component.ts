@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Joueur } from '../interfaces/joueur';
-import { ProfilPageService } from './profil-page.service';
 import { Grade } from '../interfaces/grade';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { ProfilPageService } from '../services/profil-page.service';
 
 
 @Component({

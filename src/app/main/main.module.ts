@@ -6,6 +6,7 @@ import { TropheesHallComponent } from './trophees-hall/trophees-hall.component';
 import { NewGameComponent } from './new-game/new-game.component';
 import { AllGamesComponent } from './all-games/all-games.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports:[
     MainComponent,

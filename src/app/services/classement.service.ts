@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Saison } from '../../interfaces/saison';
-import { JoueurClassement } from '../../interfaces/joueur-classement';
+import { Saison } from '../interfaces/saison';
+import { JoueurClassement } from '../interfaces/joueur-classement';
 
 
 @Injectable({

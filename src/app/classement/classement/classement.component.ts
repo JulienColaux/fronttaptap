@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { JoueurClassement } from '../../interfaces/joueur-classement';
 import { Saison } from '../../interfaces/saison';
-import { ClassementService } from '../services/classement.service';
-import { CountdownService } from '../services/countdown.service';
 import { Observable } from 'rxjs';
+import { ClassementService } from '../../services/classement.service';
+import { CountdownService } from '../../services/countdown.service';
 
 @Component({
   selector: 'app-classement',
