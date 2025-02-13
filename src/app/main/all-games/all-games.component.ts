@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PartieService } from '../../services/partie.service';
 import { PartieForAllGames } from '../../interfaces/allgames';
 
@@ -7,13 +7,13 @@ import { PartieForAllGames } from '../../interfaces/allgames';
   templateUrl: './all-games.component.html',
   styleUrl: './all-games.component.css'
 })
-export class AllGamesComponent implements OnInit{
+export class AllGamesComponent implements OnInit {
 
   parties: PartieForAllGames[] = [];
   isLoading = true;
   errorMessage = '';
 
-  constructor(private partieService: PartieService) {}
+  constructor(private partieService: PartieService) { }
 
 
   ngOnInit() {
@@ -29,5 +29,5 @@ export class AllGamesComponent implements OnInit{
       }
     });
 
-}
+  }
 }
