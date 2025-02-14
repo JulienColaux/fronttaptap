@@ -6,7 +6,7 @@
 </div>
 
   <div class="saison">
-    <h1>Saison 1</h1>
+    <h1>Saison {{this.seasonId}}</h1>
     <div *ngIf="countdown$ | async as countdown">
       <h2>
         {{ countdown.days }}- {{ countdown.hours }}- {{ countdown.minutes }}-

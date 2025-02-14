@@ -1,17 +1,21 @@
 <div *ngIf="parties.length > 0">
-    <h2>Liste des Parties</h2>
-    
-    <div *ngFor="let partie of parties" class="partie-card">
-      <h3>Partie #{{ partie.iD_Partie }}</h3>
-      <p>Date: {{ partie.date_Partie | date }}</p>
-      <p>Type: {{ partie.amical ? 'Amical' : 'Compétitif' }}</p>
+  <h2>Liste des Parties</h2>
   
-      <h4>Joueurs</h4>
-      <ul>
-        <li *ngFor="let joueur of partie.joueurs">
-          <strong>{{ joueur.nom }}</strong> - {{ joueur.points }} points
-        </li>
-      </ul>
-    </div>
+  <div *ngFor="let partie of parties" class="partie-card">
+    <p>{{ partie.date_Partie | date }}</p>
+    <p>Type:
+      <img 
+        src="{{ partie.amical ? '/images/amilogo.png' : '/images/competlogo.png' }}"
+        alt="{{ partie.amical ? 'Logo Amical' : 'Logo Compétitif' }}"
+        title="{{ partie.amical ? 'Logo Amical' : 'Logo Compétitif' }}"
+        class="logo" />
+    </p>
+
+    <h4>Joueurs :</h4>
+    <ul>
+      <li *ngFor="let joueur of partie.joueurs">
+        <strong>{{ joueur.nom }}</strong> - {{ joueur.points }} points
+      </li>
+    </ul>
   </div>
-  
+</div>

@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { PartieForAllGames } from '../interfaces/allgames';
+import { Partie } from '../interfaces/partie';
 
 
 
@@ -32,8 +33,13 @@ export class PartieService {
 
   // Ajouter un joueur à une partie
   addJoueurToPartie(partieId: number, joueurId: number, points: number): Observable<any> {
-    return this.http.post(`${this.apiUrl}/${partieId}/joueur`, { joueurId, points });
-  }
+    const params = new HttpParams()
+        .set('JoueurId', joueurId.toString())
+        .set('Points', points.toString());
+
+    return this.http.post(`${this.apiUrl}/${partieId}/joueur`, {}, { params });
+}
+
 
 
 
@@ -41,8 +47,9 @@ export class PartieService {
     return this.http.get<JoueurForListe[]>(this.joueurUrl);
   }
 
-
-
+  getPartieById(id: number): Observable<Partie> {
+    return this.http.get<Partie>(`${this.apiUrl}/${id}`);
+  }
 
   getParties(): Observable<PartieForAllGames[]> {
     return this.http.get<PartieForAllGames[]>(this.apiUrlallParties);

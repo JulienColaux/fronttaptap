@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ConexionComponent } from './conexion.component';
+
 
 describe('ConexionComponent', () => {
   let component: ConexionComponent;
@@ -10,7 +10,7 @@ describe('ConexionComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ConexionComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ConexionComponent);
     component = fixture.componentInstance;

@@ -43,7 +43,10 @@ export class ConexionComponent {
                 }
 
                 this.joueurId = joueurId; // Stocke l'ID joueur
+                localStorage.setItem('joueurId', joueurId.toString());
+                localStorage.setItem('seasonId', "1");
                 console.log('JoueurID récupéré :', this.joueurId);
+                console.log('SaisonID récupéré : 1');
 
                 // Redirection vers le profil
                 this.router.navigate([`/profil/${this.joueurId}`]);

@@ -1,0 +1,82 @@
+/* Assurez-vous que html et body prennent toute la hauteur de la fenêtre */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  /* Global dark theme et style général sur le composant */
+  :host {
+    display: block;
+    min-height: 100vh;       /* Prend toute la hauteur de la fenêtre */
+    width: 100vw;            /* Prend toute la largeur de la fenêtre */
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Titre principal */
+  h2 {
+    border-bottom: 2px solid #444;
+    padding-bottom: 10px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  /* Chaque partie est affichée comme une ligne de type flex */
+  .partie-card {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+    transition: background-color 0.3s;
+  }
+  
+  /* Colonne Date (premier paragraphe) */
+  .partie-card p:nth-of-type(1) {
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  /* Colonne Type (deuxième paragraphe) */
+  .partie-card p:nth-of-type(2) {
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  /* Colonne Joueurs : titre */
+  .partie-card h4 {
+    flex: 0.5;
+    margin: 0 10px;
+    font-size: 1em;
+    color: #ccc;
+  }
+  
+  /* Colonne Joueurs : liste des joueurs */
+  .partie-card ul {
+    flex: 2;
+    margin: 0 10px;
+    padding: 0;
+    list-style: none;
+  }
+  
+  /* Style de chaque joueur */
+  .partie-card ul li {
+    padding: 2px 0;
+  }
+  
+  /* Effet au survol de la ligne */
+  .partie-card:hover {
+    background-color: #333;
+  }
+
+  .logo {
+    width: 4vh;      /* Ajustez la taille selon vos besoins */
+    height: auto;
+    vertical-align: middle;
+    margin-left: 5px;
+  }
+  
+  

@@ -10,9 +10,19 @@
   
   /* Container centré */
   .container {
+    position: relative;
     max-width: 800px;
     margin: 0 auto;
   }
+
+  .top-right-img {
+    position: absolute;
+    top: 10vh;    /* Ajuste selon le padding ou la marge désirée */
+    right: 90vh;  /* Ajuste selon le padding ou la marge désirée */
+    width: 300px; /* Par exemple, ajuste la taille de l'image */
+    height: auto; /* Maintient le ratio de l'image */
+  }
+  
   
   /* En-tête et pied de page */
   header, footer {
