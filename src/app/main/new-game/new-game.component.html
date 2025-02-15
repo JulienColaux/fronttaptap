@@ -1,33 +1,49 @@
-<div>
-  <h2>Créer une Partie</h2>
-  <label>
-    <input type="checkbox" [(ngModel)]="amical"> Partie Amicale
-  </label>
-  <button (click)="createPartie()">Créer Partie</button>
+<div class="all">
+  <h1>Créer une Partie</h1>
 
-  <div *ngIf="partieId">
-    <h3>Ajouter des Joueurs à la Partie {{ partieId }}</h3>
+<div class="presqueAll">
+
+  <div class="addJoueur">
     
-    <!-- Menu déroulant pour sélectionner un joueur -->
     <label>
-      Sélectionner un joueur:
-      <select [(ngModel)]="selectedJoueur">
-        <option *ngFor="let joueur of joueurListe" [ngValue]="joueur">
-          {{ joueur.nom }}
-        </option>
-      </select>
+      Partie Amicale<input type="checkbox" [(ngModel)]="amical">
     </label>
-
-    <label>
-      Points: <input type="number" [(ngModel)]="points">
-    </label>
-    <button (click)="addJoueur()">Ajouter Joueur</button>
-
-    <h4>Liste des Joueurs</h4>
-    <ul>
-      <li *ngFor="let joueur of joueurs">
-        Joueur {{ joueur.joueurId }} - Points: {{ joueur.points }}
-      </li>
-    </ul>
+    <button (click)="createPartie()">Créer Partie</button>
+    
+    <div *ngIf="partieId">
+      <h3>Ajouter des Joueurs à la Partie {{ partieId }} :</h3>
+      
+      <!-- Menu déroulant pour sélectionner un joueur -->
+      <label>
+        Joueur :
+        <select [(ngModel)]="selectedJoueur">
+          <option *ngFor="let joueur of joueurListe" [ngValue]="joueur">
+            {{ joueur.nom }}
+          </option>
+        </select>
+      </label>
+      
+      <label>
+        Points  : <input type="number" [(ngModel)]="points">
+      </label>
+      <button (click)="addJoueur()">Ajouter Joueur</button>
+      
+    </div>
+    
   </div>
+    
+    <div class="listeJoueurs">
+      
+      <h4>Liste des Joueurs</h4>
+      <ul>
+        <li *ngFor="let joueur of joueurs">
+          <img class="imageAvatar" src="images/{{joueur.url}}" alt="Avatar du joueur">
+          <p>Points: {{ joueur.points }}</p>
+        </li>
+      </ul>
+    </div>
+    <button class="submit" [routerLink]="['/menu']">Ajouter la partie</button>
+  </div>
+  
+  
 </div>

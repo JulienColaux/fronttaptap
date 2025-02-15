@@ -9,6 +9,8 @@ import { Partie } from '../interfaces/partie';
 export interface JoueurForListe {
   iD_Joueur: number;
   nom: string;
+  avatar_URL?: string;
+
 }
 
 

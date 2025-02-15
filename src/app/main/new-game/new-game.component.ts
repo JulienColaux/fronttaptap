@@ -13,7 +13,7 @@ import { JoueurService } from '../../services/joueur.service';
 export class NewGameComponent implements OnInit {
   amical: boolean = false;
   partieId: number | null = null;
-  joueurs: { joueurId: number; points: number }[] = [];
+  joueurs: { joueurId: number; points: number; url?: string }[] = [];
   points: number = 0;
   joueurListe: JoueurForListe[] = [];
   selectedJoueur: JoueurForListe | null = null; // Pour stocker le joueur sélectionné
@@ -48,7 +48,7 @@ export class NewGameComponent implements OnInit {
     if (this.partieId && this.selectedJoueur) {
       this.partieService.addJoueurToPartie(this.partieId, this.selectedJoueur.iD_Joueur, this.points)
         .subscribe(() => {
-          this.joueurs.push({ joueurId: this.selectedJoueur!.iD_Joueur, points: this.points });
+          this.joueurs.push({ joueurId: this.selectedJoueur!.iD_Joueur, points: this.points, url: this.selectedJoueur?.avatar_URL });
           console.log("Joueur ajouté avec succès : " + this.selectedJoueur?.nom);
           
           // Récupérer les détails complets de la partie pour vérifier si elle est amicale

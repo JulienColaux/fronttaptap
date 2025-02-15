@@ -1,0 +1,135 @@
+/* Conteneur global */
+.all {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #121212; /* Fond sombre */
+    color: #e0e0e0; /* Texte clair */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Titres */
+  .all h1,
+  .all h3,
+  .all h4 {
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+
+  .all h3{
+    margin-top: 2vh;
+  }
+  
+  /* Conteneur principal */
+  .presqueAll {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Section d'ajout de joueur */
+  .addJoueur {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .addJoueur label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #cfcfcf;
+  }
+  
+.addJoueur input{
+    width: 11vh;
+}
+
+  /* Styles des inputs et selects */
+  .addJoueur input[type="number"],
+  .addJoueur select {
+    margin-left: 10px;
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 4px;
+  }
+  
+  /* Bouton de création et d'ajout */
+  .addJoueur button {
+    background-color: #3a3a3a;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+  }
+  
+  .addJoueur button:hover {
+    background-color: #505050;
+  }
+  
+  /* Liste des joueurs */
+  .listeJoueurs {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .listeJoueurs ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .listeJoueurs li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+  }
+  
+  .listeJoueurs li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Style de l'image avatar */
+  .imageAvatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+  }
+  
+  /* Texte dans la liste des joueurs */
+  .listeJoueurs p {
+    margin: 0;
+    font-size: 1rem;
+    color: #ddd;
+  }
+  
+button.submit{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+    transition: transform 0.3s;
+
+}
+
+button.submit:hover{
+    transform: scale(1.2); /* Le bouton grandit de 10% */
+}

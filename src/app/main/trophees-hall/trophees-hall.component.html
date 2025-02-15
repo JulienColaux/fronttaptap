@@ -1,5 +1,15 @@
-<div *ngFor="let trophee of trophees">
-    <h3>{{ trophee.nom }}</h3>
-    <p>{{ trophee.date_Acquisition }}</p>
+<div class="all">
+
+  
+  <h1>Hall des Trophées</h1>
+  
+  <div class="trophees">
+
+    <div *ngFor="let trophee of trophees" class="tropheeCard">
+    <img src="images/{{trophee.url_image}}" alt="Photo de profile du joueur" />
+    <h3>{{"Saison " + trophee.iD_Saison }}</h3>
   </div>
   
+  
+</div>
+</div>

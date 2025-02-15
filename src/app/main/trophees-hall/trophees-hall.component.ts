@@ -17,6 +17,7 @@ ngOnInit(): void {
   this.service.GetAllTrophees().subscribe({
     next: (data) =>{
       this.trophees = data;
+      console.log(this.trophees);
     }
   })
 }
