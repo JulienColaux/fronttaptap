@@ -46,7 +46,7 @@ export class ProfileComponent implements OnInit {
         console.log('Joueur récupéré :', data);
   
         if (data.trophees) {
-          this.tropheesUrls = data.trophees.map(trophee => `/images/${trophee.url_image}`);
+          this.tropheesUrls = data.trophees.map(trophee => `images/${trophee.url_image}`);
         }
   
         // Vérifier l'ID du grade et charger le grade une fois le joueur récupéré
