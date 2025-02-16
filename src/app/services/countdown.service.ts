@@ -13,26 +13,34 @@ export class CountdownService {
   private countdownSubscription: Subscription | null = null;
   private apiUrl = 'http://localhost:5105/api/Saison';
 
+
+
   constructor(private classementService: ClassementService, private http: HttpClient) {} 
 
-  addSaison(saisonData: any): Observable<any> {
+
+
+  createNewSeason(): Observable<any> {
     const url = `${this.apiUrl}/addSaison`;
-    return this.http.post<any>(url, saisonData).pipe(
+    return this.http.post<any>(url, {}).pipe(
       catchError(error => {
         console.error("Erreur lors de l'ajout de la saison :", error);
-        return throwError(error);
+        return throwError(() => error);
       })
     );
   }
+  
+
+
 
   startCountdown(targetDate: string) {
+    //evite que le decompte etourne en boucle (abonement multiple)
     if (this.countdownSubscription) {
-      this.countdownSubscription.unsubscribe(); //  Évite les abonnements multiples
+      this.countdownSubscription.unsubscribe();
     }
 
     const target = new Date(targetDate).getTime();
 
-    this.countdownSubscription = interval(1000).pipe(
+    this.countdownSubscription = interval(1000).pipe( //creer un observa qui sera  qui emet un event chaque sec (la fonction dans map)
       map(() => {
         const now = new Date().getTime();
         const timeLeft = target - now;
@@ -41,10 +49,15 @@ export class CountdownService {
           this.countdown$.next({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
           if (this.countdownSubscription) {
-            this.countdownSubscription.unsubscribe(); //  Stoppe le décompte quand fini
+            this.countdownSubscription.unsubscribe(); //  Stop l appel de la fonction chaque sec
           }
 
-          this.createNewSeason(); //  Appelle la création d'une nouvelle saison
+          this.createNewSeason().subscribe(
+            response =>{
+              const newSaisonId = response.saisonId;
+              localStorage.setItem('seasonId', newSaisonId);
+            }
+          )
 
           return { days: 0, hours: 0, minutes: 0, seconds: 0 };
         }
@@ -59,42 +72,14 @@ export class CountdownService {
     ).subscribe(this.countdown$);
   }
 
+
+
+
   getCountdown() {
     return this.countdown$.asObservable();
   }
 
-  private createNewSeason() {
-    const nouvelleSaison = {
-      nom: `Saison ${new Date().getFullYear()}`,
-      debut: new Date().toISOString(),
-      fin: new Date(new Date().setMonth(new Date().getMonth() + 3)).toISOString() // Ex : 3 mois après
-    };
 
-    this.addSaison(nouvelleSaison).pipe(
-      switchMap((response) => {
-        if (!response || !response.id) {
-          throw new Error("ID de la nouvelle saison manquant !");
-        }
 
-        console.log("Nouvelle saison créée avec ID :", response.id);
 
-        // Met à jour le localStorage avec le nouvel ID
-        localStorage.setItem('seasonId', response.id.toString());
-
-        // Récupère les infos de la nouvelle saison
-        return this.classementService.getSaisonById(response.id);
-      }),
-      catchError(error => {
-        console.error("Erreur lors de la récupération de la nouvelle saison :", error);
-        return throwError(error);
-      })
-    ).subscribe((newSaison) => {
-      if (newSaison && newSaison.decompte) {
-        console.log("Nouveau décompte récupéré :", newSaison.decompte);
-        this.startCountdown(newSaison.decompte); // ✅ Redémarre le countdown avec la nouvelle saison
-      } else {
-        console.warn("Aucune date de décompte trouvée pour la nouvelle saison.");
-      }
-    });
-  }
 }

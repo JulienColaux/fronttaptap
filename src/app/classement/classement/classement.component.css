@@ -44,7 +44,14 @@ align-items: center;
     font-size: 15vh;
 }
 
+.timer{
+    display: flex;
+    gap: 13px;
+align-items: center;}
 
+.timer img{
+    height: 27px;
+}
 
 .main-container{
     width: 42%;
@@ -58,7 +65,7 @@ align-items: center;
 }
 
 .main:hover{
-    transform: scale(1.1);  /* Agrandit le bouton à 110% */
+    transform: scale(1.1);  
 }
 
 .joueur{

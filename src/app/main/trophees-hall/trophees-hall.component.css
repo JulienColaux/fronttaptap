@@ -9,19 +9,28 @@
 }
 
 .all h1{
-    padding-bottom:12vh;
+    padding-bottom:10vh;
+    font-size: 10vh;
+    padding-top: 6vh;
+}
 
-    padding-top: 5vh;
+.trophees {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes */
+    gap: 20px; /* Espacement entre les cartes */
+    justify-content: center;
+    width: 80%;
 }
 
 
 .tropheeCard {
-    background-color: rgba(255, 255, 255, 0.3); /* 50% d'opacité */
+    background-color: rgba(255, 255, 255, 0.3);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5px;
+    padding: 10px;
     border-radius: 10px;
+    text-align: center;
 }
 
 .tropheeCard img{

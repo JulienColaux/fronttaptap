@@ -8,7 +8,7 @@ import { CountdownService } from '../../services/countdown.service';
 @Component({
   selector: 'app-classement',
   templateUrl: './classement.component.html',
-  styleUrls: ['./classement.component.css'] // ✅ Correction de "styleUrl" -> "styleUrls"
+  styleUrls: ['./classement.component.css'] 
 })
 export class ClassementComponent implements OnInit {
   joueursClassement: JoueurClassement[] = [];
@@ -19,7 +19,7 @@ export class ClassementComponent implements OnInit {
 
   constructor(
     private service: ClassementService,
-    private countdownService: CountdownService // ✅ Injection du CountdownService
+    private countdownService: CountdownService //  Injection du CountdownService
   ) {}
 
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class ClassementComponent implements OnInit {
     this.seasonId = seasonIdstr ? parseInt(seasonIdstr, 10) : null;
   
     if (this.seasonId !== null) {
-      // ✅ Ensure seasonId is valid before making API calls
+      
       this.service.getClassement(this.seasonId).subscribe(
         (data: JoueurClassement[]) => {
           this.joueursClassement = data;
@@ -43,7 +43,7 @@ export class ClassementComponent implements OnInit {
           this.saison = data;
           console.log('Saison récupérée :', data);
   
-          // ✅ Vérifier si la saison a un décompte avant de démarrer le compte à rebours
+          //  Vérifier si la saison a un décompte avant de démarrer le compte à rebours
           if (this.saison.decompte) {
             this.countdownService.startCountdown(this.saison.decompte);
             this.countdown$ = this.countdownService.getCountdown();

@@ -1,15 +1,11 @@
 <div class="all">
-
-  
   <h1>Hall des Trophées</h1>
-  
   <div class="trophees">
-
     <div *ngFor="let trophee of trophees" class="tropheeCard">
-    <img src="images/{{trophee.url_image}}" alt="Photo de profile du joueur" />
-    <h3>{{"Saison " + trophee.iD_Saison }}</h3>
+      <img src="images/{{trophee.url_image}}" alt="Photo de profile du joueur" />
+      <h3>{{ "Saison " + trophee.iD_Saison }}</h3>
+      <!-- Utilisation de la propriété préchargée -->
+      <span>{{ trophee.nom }}</span>
+    </div>
   </div>
-  
-  
-</div>
 </div>

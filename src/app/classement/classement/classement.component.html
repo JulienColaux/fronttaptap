@@ -6,12 +6,14 @@
 </div>
 
   <div class="saison">
+
     <h1>Saison {{this.seasonId}}</h1>
-    <div *ngIf="countdown$ | async as countdown">
+    <div *ngIf="countdown$ | async as countdown" class="timer">
       <h2>
         {{ countdown.days }}- {{ countdown.hours }}- {{ countdown.minutes }}-
         {{ countdown.seconds }}
       </h2>
+      <img src="images/timerlogo.png" alt="timer logo">
     </div>
   </div>
 

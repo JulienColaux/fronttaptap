@@ -18,8 +18,8 @@
   .top-right-img {
     position: absolute;
     top: 10vh;    /* Ajuste selon le padding ou la marge désirée */
-    right: 90vh;  /* Ajuste selon le padding ou la marge désirée */
-    width: 300px; /* Par exemple, ajuste la taille de l'image */
+    right: 120vh;  /* Ajuste selon le padding ou la marge désirée */
+    width: 230px; /* Par exemple, ajuste la taille de l'image */
     height: auto; /* Maintient le ratio de l'image */
   }
   
